@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="DBSscript\InitialData.sql" />
     <Content Include="DBSscript\jxxy.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
