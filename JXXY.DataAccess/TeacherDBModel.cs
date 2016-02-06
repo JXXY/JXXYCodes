@@ -22,7 +22,7 @@ namespace JXXY.DataAccess
 
         public TeacherDBModel GetTeacher(string userName)
         {
-            using (JxxyEntities jxxyContext = new JxxyEntities())
+            using (JxxyContext jxxyContext = new JxxyContext())
             { 
                 var dbTeacher = (from teacher in jxxyContext.Teachers
                                where teacher.LoginName == userName

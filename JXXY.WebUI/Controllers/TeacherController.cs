@@ -30,7 +30,7 @@ namespace JXXY.WebUI.Controllers
                     return RedirectToAction("", "");
                 }
             }
-            return RedirectToAction("Login");
+            return View();
             
         }
     }
