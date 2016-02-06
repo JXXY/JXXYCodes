@@ -1,0 +1,38 @@
+﻿@model JXXY.WebUI.Models.TeacherModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<style>
+    .login-content {
+        width:300px;height:240px;border:1px solid lightgray;padding-left:40px;margin-top:100px;
+    }
+    .login-content input[type=text],.login-content input[type=password] {width:220px;}
+    .login-content input[type=submit] {margin-left:152px;margin-top:24px;}
+        .login-content dl:last-child {margin-top:30px;}
+</style>
+
+@using (Html.BeginForm("login", "teacher", FormMethod.Post))
+{
+    <div role="row">
+        <div class="col-md-9 col-md-offset-3">            
+            <div class="login-content">
+                <dl>
+                    <dt>用 户:</dt>
+                    <dd>@Html.TextBoxFor(m => m.LoginName)&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.LoginName, "", new { @class = "text-danger" })</dd>
+                </dl>
+                <dl>
+                    <dt>密 码:</dt>
+                    <dd>@Html.PasswordFor(m => m.Password)&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</dd>
+                </dl>
+                <div>
+                    @Html.ValidationMessage("loginTip")
+                </div>
+                <div>
+                    <input type="submit" value="Submit" class="btn" />
+                </div>
+            </div>            
+        </div>
+    </div>
+}
+

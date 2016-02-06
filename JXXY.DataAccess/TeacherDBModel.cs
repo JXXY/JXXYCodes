@@ -18,12 +18,7 @@ namespace JXXY.DataAccess
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public string SchoolId { get; set; }
-
-        public void TeacherDBModel()
-        {
-            Mapper.CreateMap<Teacher, TeacherDBModel>();
-        }
+        public string SchoolId { get; set; }       
 
         public TeacherDBModel GetTeacher(string userName)
         {
