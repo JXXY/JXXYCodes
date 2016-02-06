@@ -25,7 +25,7 @@
                     <dt>密 码:</dt>
                     <dd>@Html.PasswordFor(m => m.Password)&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</dd>
                 </dl>
-                <div>
+                <div class="text-danger">
                     @Html.ValidationMessage("loginTip")
                 </div>
                 <div>
