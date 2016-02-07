@@ -5,33 +5,44 @@
 
 <style>
     .login-content {
-        width:300px;height:240px;border:1px solid lightgray;padding-left:40px;margin-top:100px;
+        width:360px;height:240px; margin-top:100px;        
     }
     .login-content input[type=text],.login-content input[type=password] {width:220px;}
-    .login-content input[type=submit] {margin-left:152px;margin-top:24px;}
-        .login-content dl:last-child {margin-top:30px;}
+    .login-content input[type=submit] {margin-left:212px;}        
+    .panel-body {margin-left:8px;}
+    .panel-body dl dt {float:left;width:60px;}
+    .panel-body dl:first-child {margin-top:12px;clear:both;margin-bottom:24px;}
+        .panel-body div:last-child {
+        clear:both;}
+        .panel-body div > p:first-child {float:left;font-size:12px;width:200px}
+        .panel-body div > p:last-child {float:left;}
 </style>
 
 @using (Html.BeginForm("login", "teacher", FormMethod.Post))
 {
     <div role="row">
-        <div class="col-md-9 col-md-offset-3">            
-            <div class="login-content">
-                <dl>
-                    <dt>用 户:</dt>
-                    <dd>@Html.TextBoxFor(m => m.LoginName)&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.LoginName, "", new { @class = "text-danger" })</dd>
-                </dl>
-                <dl>
-                    <dt>密 码:</dt>
-                    <dd>@Html.PasswordFor(m => m.Password)&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</dd>
-                </dl>
-                <div class="text-danger">
-                    @Html.ValidationMessage("loginTip")
+        <div class="col-md-6 col-md-offset-3">            
+            <div class="panel panel-default login-content">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        登 录
+                    </h3>
                 </div>
-                <div>
-                    <input type="submit" value="Submit" class="btn" />
-                </div>
-            </div>            
+                <div class="panel-body">
+                    <dl>
+                        <dt>用 户:</dt>
+                        <dd>@Html.TextBoxFor(m => m.LoginName)&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.LoginName, "", new { @class = "text-danger" })</dd>
+                    </dl>
+                    <dl>
+                        <dt>密 码:</dt>
+                        <dd>@Html.PasswordFor(m => m.Password)&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</dd>
+                    </dl>
+                    <div>
+                        <p class="text-danger" style="">@Html.ValidationMessage("loginTip")</p>
+                        <p><input type="submit" value="Submit" class="btn" /></p>                        
+                    </div>                    
+                </div>            
+            </div>
         </div>
     </div>
 }
