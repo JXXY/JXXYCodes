@@ -1,0 +1,54 @@
+﻿<style>
+    .jxxy-menu {
+        height:460px;
+        width:240px;
+        
+        margin-top:20px;
+        border:1px solid lightgray;
+    }
+        .jxxy-menu ul {
+            list-style:none;
+            padding:0px;
+        }
+            .jxxy-menu ul li {
+                border-bottom:1px solid lightgray;
+                height:52px;
+                text-align:center;
+                font-size:14px;
+                font-weight:bold;
+                margin-top:20px;
+            }
+
+                .jxxy-menu ul li:last-child {
+                    border-bottom:none;
+                }
+    .jxxy-menu-active {
+        color:red;
+    }
+</style>
+<script type="text/javascript">
+    function setMenuActive(menuId)
+    {
+        var menus = $(".jxxy-menu ul li a");
+        $.each(menus, function () {
+            $(this).removeClass("jxxy-menu-active");
+        });
+
+        $.each(menus, function (menu) {
+            if ($(this).attr("id") == menuId) {
+                $(this).addClass("jxxy-menu-active");
+            }
+        });
+        
+    }
+</script>
+<div class="panel jxxy-menu">
+    <ul>
+        <li><a id="jxxy_menu_jxxx">驾校信息</a></li>
+        <li><a id="jxxy_menu_jlxx">教练信息</a></li>
+        <li><a id="jxxy_menu_xyxx">学员信息</a></li>
+        <li><a id="jxxy_menu_ksap">考试安排</a></li>
+        <li><a id="jxxy_menu_ksxx">考试详情</a></li>
+        <li><a id="jxxy_menu_tj">统计</a></li>
+    </ul>
+</div>

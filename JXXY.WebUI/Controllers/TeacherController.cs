@@ -27,7 +27,7 @@ namespace JXXY.WebUI.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("", "");
+                    return RedirectToAction("show", "School");
                 }
             }
             return View();
