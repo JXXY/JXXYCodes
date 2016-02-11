@@ -30,14 +30,14 @@ namespace JXXY.DataAccess
 
                 if(dbTeacher != null)
                 {
-                    return FromModeInDB(dbTeacher);
+                    return FromMode(dbTeacher);
                 }
 
                 return null;
             }
         }
 
-        private static TeacherDBModel FromModeInDB(Teacher teacher)
+        private static TeacherDBModel FromMode(Teacher teacher)
         {
             Mapper.CreateMap<Teacher, TeacherDBModel>();
             var teacherDBModel = Mapper.Map<TeacherDBModel>(teacher);

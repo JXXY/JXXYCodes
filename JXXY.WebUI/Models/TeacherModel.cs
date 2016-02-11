@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using JXXY.Logic;
+using AutoMapper;
 
 namespace JXXY.WebUI.Models
 {
@@ -21,8 +22,24 @@ namespace JXXY.WebUI.Models
 
         private Teacher _teacherLogic = new Teacher();
 
-        
+
+        public TeacherModel GetByLoginName(string loginName)
+        {
+           var teacher = _teacherLogic.GetTeacher(loginName);
+           var teacherModel = FromLogicModel(teacher);
+           return teacherModel;
+        }
 
 
+        public static TeacherModel FromLogicModel(Teacher teacher)
+        {
+            if (teacher != null)
+            {
+                Mapper.CreateMap<Teacher, TeacherModel>();
+                var teacherModel = Mapper.Map<TeacherModel>(teacher);
+                return teacherModel;
+            }
+            return null;
+        }
     }
 }

@@ -17,8 +17,37 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
+}*/
+
+.field-validation-error {
+    color:red;
+}
+
+dl {
+    clear:both;
+    height:40px;
+}
+
+dl dt {
+    float:left;  
+    width:60px;  
+}
+
+dl dd {
+    float:left;
+    clear:right;
+}
+
+input[type=text] {   
+    height:26px;
+    line-height:26px;
+    padding-left:1px;
+}
+
+ul li {
+    list-style:none;    
 }

@@ -1,4 +1,5 @@
-﻿@model JXXY.WebUI.Models.SchoolModel
+﻿@using JXXY.WebUI.Models
+@model JXXY.WebUI.Models.SchoolModel
 @{
     ViewBag.Title = "School Infos";
 }
@@ -7,71 +8,38 @@
         setMenuActive("jxxy_menu_jxxx");
     });
 </script>
-<style>
-    .jxxy-jxxx-detail {
-        height:320px;
-        width:100%;        
-        margin-top:20px;        
-    }
-    
-    .jxxy-jxxx-detail dl dd{
-        width:420px;
-    }
-        .jxxy-jxxx-detail dl dd  input[type=text] {
-            width:360px !important;
-        }
 
-        .jxxy-jxxx-detail  dl dd  textarea {
-            width:360px;
-            height:80px;
-        }
-
-            .jxxy-jxxx-detail ul li {
-                float:left;
-            }
-
-        .jxxy-jxxx-detail ul li:first-child {
-            margin-left:40px;
-        }
-
-        .jxxy-jxxx-detail ul li:last-child {
-            margin-left:10px;
-        }
-</style>
-<div class="row">
-    <div class="col-md-3" >@Html.Partial("~/Views/Shared/_Menu.cshtml")</div>
-    <div class="col-md-9">
-        <div class="row">
-            <div class="panel panel-default jxxy-jxxx-detail">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        驾校信息
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <div class="panel-body-detail">
-                        <dl>
-                            <dt>名 称：</dt>
-                            <dd>@Html.TextBoxFor(m => m.Name)&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.Name)</dd>
-                        </dl>
-                        <dl>
-                            <dt>地 址：</dt>
-                            <dd>@Html.TextBoxFor(m => m.Address)&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.Address)</dd>
-                        </dl>
-                        <dl>
-                            <dt>备 注：</dt>
-                            <dd>@Html.TextAreaFor(m => m.Remark)&nbsp;&nbsp;@Html.ValidationMessageFor(m => m.Remark)</dd>
-                        </dl>
+<form action="School/show" method="post" role="form" class="form-horizontal">
+    <div class="row">
+        <div class="col-md-3">@Html.Partial("~/Views/Shared/_Menu.cshtml")</div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="panel panel-default jxxy-jxxx-detail">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            驾校信息
+                        </h3>
                     </div>
-                    <ul>
-                        <li><input type="submit" name="btnAddSchoolInfo" value="添 加" class="btn" /></li>
-                        <li><input type="button" id="btnClearSchoolInfo" value="清 空" class="btn" /></li>
-                    </ul>
+                    <div class="panel-body">
+                        @Html.Partial("_SchoolOperation", new SchoolModel())
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            驾校列表
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        @{var schools = ViewBag.schools as List<JXXY.WebUI.Models.SchoolModel>;}
+                        @Html.Partial("_SchoolList", schools)
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>
+
 
 
 

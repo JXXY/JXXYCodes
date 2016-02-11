@@ -1,0 +1,33 @@
+﻿@model List<JXXY.WebUI.Models.SchoolModel>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th><span class="text-muted">名 称</span></th>
+            <th><span class="text-muted">地 址</span></th>
+            <th><span class="text-muted">备 注</span></th>
+            <th style="width:140px;text-align:center"><span class="text-muted">操 作</span></th>
+        </tr>
+    </thead>
+    @{
+        if (Model != null && Model.Count > 0)
+        {
+            <tbody>
+                @foreach (var school in Model)
+                {
+                    <tr>
+                        <td>@school.Name</td>
+                        <td>@school.Address</td>
+                        <td>@school.Remark</td>
+                        <td>
+                            <input type="hidden" value="@school.Id" id="SchoolId_@school.Id" />
+                            <input type="submit" name="btnUpdate" value="修改" class="btn btn-sm" />&nbsp;&nbsp;&nbsp;
+                            <input type="submit" name="btnDelete" value="删除" class="btn btn-sm btn-danger" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+    }
+</table>
+
+ 

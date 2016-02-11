@@ -70,6 +70,7 @@
     <Compile Include="School.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="SchoolDBModel.cs" />
     <Compile Include="Student.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
