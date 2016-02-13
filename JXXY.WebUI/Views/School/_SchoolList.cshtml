@@ -1,4 +1,23 @@
-﻿@model List<JXXY.WebUI.Models.SchoolModel>
+﻿<script type="text/javascript">
+    function setUpdateValue(btn)
+    {
+        var id = $(btn).prev().attr("value");
+        var tdRemark = $(btn).parent().prev();
+        var remark = tdRemark.text();
+        $("#Remark").val(remark);
+
+        var tdAddress = tdRemark.prev();
+        var address = tdAddress.text();
+        $("#Address").val(address);
+
+        var tdName = tdAddress.prev();
+        var name = tdName.text();
+        $("#Name").val(name);
+
+        $("#btnAdd").val("修改");
+    }
+</script>
+@model List<JXXY.WebUI.Models.SchoolModel>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -14,13 +33,17 @@
             <tbody>
                 @foreach (var school in Model)
                 {
+                    if (school.Name == "SYSTEM")
+                    {
+                        continue;
+                    }
                     <tr>
                         <td>@school.Name</td>
                         <td>@school.Address</td>
                         <td>@school.Remark</td>
-                        <td>
+                        <td style="text-align:center">
                             <input type="hidden" value="@school.Id" id="SchoolId_@school.Id" />
-                            <input type="submit" name="btnUpdate" value="修改" class="btn btn-sm" />&nbsp;&nbsp;&nbsp;
+                            <input type="button" name="btnUpdate" onclick="javascript:setUpdateValue(this)" value="修改" class="btn btn-sm" />&nbsp;&nbsp;&nbsp;
                             <input type="submit" name="btnDelete" value="删除" class="btn btn-sm btn-danger" />
                         </td>
                     </tr>
